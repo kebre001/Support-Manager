@@ -425,7 +425,7 @@ async def on_message(message):
                     errormsg = ", but user disabled direct messages"
 
             sqlib.tickets.update(content, {'closed': 1})
-            await client.send_message(message.channel, f"Ticket closed{errormsg}.")
+            await client.send_message(message.channel, "Ticket closed{0}.".format(errormsg))
 
             channel_id = str(sqlib.servers.get(sqlib.tickets.get(content, 'server')[0], 'channel')[0])
             channel = client.get_channel(channel_id)
