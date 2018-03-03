@@ -14,6 +14,8 @@ spam_protector = {}
 
 helpmsg = {}
 
+SETTINGS = json.load(open('settings.json'))
+
 helpmsg['ticket'] = "Syntax:\n" \
                     "`{prefix}ticket add [info about the problem]` or\n" \
                     "`{prefix}ticket show [ticket number]`\n" \
@@ -766,4 +768,4 @@ async def uptime_count():
 
 
 client.loop.create_task(uptime_count())
-client.run('BOT-TOKEN')  # TODO: insert token
+client.run(SETTINGS["BOT_TOKEN"])  # TODO: insert token
